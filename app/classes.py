@@ -1,7 +1,7 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash
 
-
+# наследование от UserMixin добавляет дефолтные методы для работы с flask_login
 class User(UserMixin):
     def __init__(self, id:int, user_name:str, password:str):
         self.id = id
