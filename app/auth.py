@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, redirect
 from werkzeug.security import check_password_hash
-from flask_login import login_user
+from flask_login import login_user, current_user
 
 from . import users
 from .forms import Login_form
@@ -28,5 +28,6 @@ def login_post():
 
 
                 login_user(user)
+                print(current_user.get_id())
                 return redirect(url_for('main.profile'))
         return redirect(url_for('auth.login'))
