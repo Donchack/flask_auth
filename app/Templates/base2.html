@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block secondhead %}
+<div class="div_nav2">
+    {% if the_part2=='ind' %}
+        <div class="div_left select">
+            <a class="a_nav" href={{ url_for('main.index') }}>ГЛАВНАЯ</a>
+        </div>
+        {% else %}
+            <div class="div_left">
+                <a class="a_nav" href={{ url_for('main.index') }}>ГЛАВНАЯ</a>
+            </div>
+    {% endif %}
+    {% if the_part2=='profile' %}
+        <div class="div_left select">
+            <a class="a_nav" href={{ url_for('main.profile') }}>Профиль</a>
+        </div>
+        {% else %}
+            <div class="div_left">
+                <a class="a_nav" href={{ url_for('main.profile') }}>Профиль</a>
+            </div>
+    {% endif %}
+    {% if the_part2=='log' %}
+        <div class="div_left select">
+            <a class="a_nav" href={{ url_for('auth.login') }}>Войти</a>
+        </div>
+        {% else %}
+            <div class="div_left">
+                <a class="a_nav" href={{ url_for('auth.login') }}>Войти</a>
+            </div>
+    {% endif %}
+    
+</div>
+<div style="clear:both;"></div>
+<div class="div_sep"></div>
+{% block body %}
+
+{% endblock body %}
+{% endblock secondhead %}

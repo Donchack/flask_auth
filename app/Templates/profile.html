@@ -1,0 +1,8 @@
+{% extends 'base2.html' %}
+{% block body %}
+    {% for user in the_users %}
+    <p>{{user}} {{user.psw_hash}}</p>
+    {% endfor %}
+    <br>
+    ID_current_user: {{name}}
+{% endblock body %}
