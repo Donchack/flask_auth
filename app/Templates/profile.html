@@ -4,5 +4,6 @@
     <p>{{user}} {{user.psw_hash}}</p>
     {% endfor %}
     <br>
-    ID_current_user: {{name}}
+    <div>ID_current_user: {{name}}</div>
+    <div>{{current_user.__repr__()}}</div>
 {% endblock body %}

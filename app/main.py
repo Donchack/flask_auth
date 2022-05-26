@@ -11,7 +11,7 @@ def index():
     return render_template('index.html', the_part1='prj', the_part2='ind')
 
 @main.route('/profile')
-# @login_required
+@login_required
 def profile():
     # передаем на вывод кортеж строкового представления пользователей 
     # и ID текущего авторизованоого пользователя

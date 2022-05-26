@@ -27,12 +27,13 @@ def login_post():
             # если имя пользователя с формы нашлось в списке пользователей
             # и хэш пароля с формы равен хэшу из списка пользователей
             if (user.user_name == name 
-                    and check_password_hash(user.psw_hash, form.user_psw.data)
+                    and user.check_password(form.user_psw.data)
                     ):
                 # создание сеанса пользователя, сохраняется все время
                 # пока пользователь авторизован
                 login_user(user)
                 print(current_user.get_id())
+                print(current_user.is_authenticated, current_user.is_active)
                 # перенаправление на URL защищеннойстраницы обрабатываемый функцией main.profile 
                 return redirect(url_for('main.profile'))
         return redirect(url_for('auth.login'))

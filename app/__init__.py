@@ -14,13 +14,13 @@ def create_app():
     app.config['SECRET_KEY'] = 'secret-key-goes-here'
     app.config['DEBUG'] = 'True'
     
-    login_mangr = LoginManager()
-    login_mangr.init_app(app)
+    login_mangr = LoginManager(app)
+    # login_mangr.init_app(app)
     # определение загрузчика пользователей
     @login_mangr.user_loader
-    def load_user(user_id)->'User':
+    def load_user(user_id) -> 'User':
         for user in users:
-            if user_id == user.id:
+            if user_id == user.get_id():
                 return user
 
     from .main import main as main_bluepr
